@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>GIẢI PHƯƠNG TRÌNH BẬC 2</h2>
+    </div>
+
+    <script>
+        var a = prompt("Nhập số a");
+        var b = prompt("Nhập số b");
+        var c = prompt("Nhập số c");
+
+        var delta = Math.pow(b, 2) - 4*a*c;
+        document.write(a);
+        document.write("x<sup>2</sup> + ");
+        document.write(b);
+        document.write("x + ");
+        document.write(c);
+        document.write(" = 0");
+
+        if(delta < 0) {
+            document.write("<p>Phương trình vô nghiệm</p>");
+        }
+        else if (delta == 0) {
+            var x0 = -b/(2*a);
+            document.write("<p>Phương trình có nghiệm kép x0=" + x0 + "</p>");
+        }
+        else {
+            var x1 = (-b + Math.sqrt(delta))/(2*a);
+            var x2 = (-b - Math.sqrt(delta))/(2*a);
+            document.write("<p>Phương trình có 2 nghiệm:</p>");
+            document.write("<p>x<sub>1</sub> = " + x1 + "</p>");
+            document.write("<p>x<sub>2</sub> = " + x2 + "</p>");
+        }
+    </script>
+</body>
+</html>

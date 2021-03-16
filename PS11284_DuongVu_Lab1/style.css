@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    border: 1px solid orange;
+    width: 300px;
+}
+
+.table h2 {
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+}
+
+.table_header {
+    text-align: center;
+    background-color: orangered;
+}
+
+.table_body {
+    padding: 20px;
+}
+
+span {
+    display: inline-block;
+    width: 80px;
+}
+
+p {
+    margin: 0;
+    line-height: 26px;
+}
+
+b {
+    color: blue;
+}

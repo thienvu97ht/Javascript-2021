@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2 - Lab 2</title>
+
+    <style>
+        .container {
+            width: 1140px;
+            margin: auto;
+            border: 1px solid darkgray;
+        }
+
+        header {
+            background: darkolivegreen;
+            height: 120px;
+            position: relative;
+        }
+
+        main {
+            background: darkseagreen;
+            min-height: 400px;
+        }
+
+        footer {
+            background: darkslategray;
+            height: 100px;
+        }
+
+        #chao {
+            color: deeppink;
+            font-weight: bold;
+            font-style: italic;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+        }
+
+        .name_container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .email_container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .name {
+            color: red;
+            font-weight: bold;
+        }
+
+        .full-name {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="chao"></div>
+            <!-- 
+                'Chào bạn' đang ở trong header vì ảnh hưởng bởi thuộc tính position: absolute;
+                Cách bottom header 5px và cách phải 5px
+             -->
+        </header>
+        <main>
+            
+        </main>
+        <footer>
+            <div class="name_container">
+                <p class="name">Họ tên: &#160;</p>
+                <p class="full-name"> Dương Đình Thiện Vũ</p>
+            </div>
+            <div class="email_container">
+                <p class="name">Email: &#160;</p>
+                <p class="full-name"> vuddtps11284@fpt.edu.vn</p>
+            </div>
+        </footer>
+
+        <script>
+            var n = new Date();
+            var gio = n.getHours();
+            if (gio<12) document.write("Chào buổi sáng");
+            else document.write("Chào buổi chiều");
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="table_header">
+            <h1>THÔNG TIN SINH VIÊN</h1>
+        </div>
+        
+        <div class="table_body">
+            <p>
+                <span>Họ và tên: </span>
+                <span id="ht"></span>
+            </p>
+            <p>
+                <span>Năm sinh: </span>
+                <span id="ns"></span>
+            </p>
+            <p>
+                <span>Tuổi: </span>
+                <span id="t"></span>
+            </p>
+        </div>
+    </div>
+    <script>
+        function getNs(ns){
+            var inputNs = prompt("Bạn sinh năm bao nhiêu?");
+            if( inputNs >= 2021) {
+                alert('Vui lòng nhập năm sinh < 2021');
+                getNs()
+            } else {
+                inputNs = ns;
+                console.log(inputNs);
+                console.log(ns)
+                return inputNs;
+            }
+        };
+
+        function tinhtuoi(ns) {
+            var td = new Date();
+            var n = td.getFullYear();
+            return n - ns;
+        };
+
+        var ht = prompt("Bạn tên gì?");
+        var ns = getNs();
+        var t = tinhtuoi(ns);
+
+        document.getElementById("ht").innerHTML = ht;
+        document.getElementById("ns").innerHTML = ns;
+        document.getElementById("t").innerHTML = t;
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1 - Lab 1</title>
+    <script>
+        var hoten = "Dương Đình Thiện Vũ";
+        var masv = "PS11284";
+        var ngaysinh = "21/10/1997";
+    </script>
+</head>
+<body>
+    <h2>Thông tin cá nhân</h2>
+    <p>
+        <span>Họ tên: </span>
+        <b id="hoten">
+            <script>document.write(hoten);</script>
+        </b>
+    </p>
+    <p>
+        <span>Mã SV: </span>
+        <b id="masv">
+            <script>document.write(masv);</script>
+        </b>
+    </p>
+    <p>
+        <span>Ngày sinh: </span>
+        <b id="ns"></b>
+    </p>
+    <script>
+        document.getElementById('ns').innerHTML=ngaysinh;
+    </script>
+</body>
+</html>
