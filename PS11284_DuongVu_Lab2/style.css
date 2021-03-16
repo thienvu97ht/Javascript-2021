@@ -7,7 +7,6 @@ html, body {
 
 .container {
     border: 1px solid orange;
-    width: 300px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -39,4 +38,8 @@ p {
     margin: 0;
     line-height: 26px;
     color: #fff;
+}
+
+.input {
+    min-width: 200px;
 }
