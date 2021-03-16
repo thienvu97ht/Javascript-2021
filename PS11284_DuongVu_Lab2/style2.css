@@ -28,18 +28,25 @@ html, body {
     background-color: #000;
 }
 
-span {
-    display: inline-block;
-    width: 80px;
-    color: #fff;
+.table_body-top {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+span:not(#slx) {
+    color: orange;
+    font-size: 18px;
+}
+
+#slx {
+    color: pink;
+    font-weight: 600;
+    font-size: 36px;
 }
 
 p {
-    margin: 0;
-    line-height: 26px;
-    color: #fff;
-}
-
-.input {
-    min-width: 200px;
+    margin-top: 10px;
+    color: rgb(47, 235, 72);
+    text-align: center;
 }

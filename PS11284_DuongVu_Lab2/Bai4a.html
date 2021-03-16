@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="stylesheet" href="./style2.css">
+</head>
+<body>
+    <div class="container">
+        <div class="table_header">
+            <h1>LƯU BIẾN VÀO SESSIONSTORAGE</h1>
+        </div>
+        <div class="table_body">
+            <div class="table_body-top">
+                <span>Bạn đã xem trang này: &nbsp;</span>
+                <span id="slx"></span>
+                <span>&nbsp;lần</span>
+            </div>
+            <div class="table_body--bottom">
+                <p class="table_body--bottom-content">Gõ phím F5 nạp lại trang để xem kết quả</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Biến localStorage vẫn tiếp tục tồn tại khi người dùng đóng trình duyệt
+        var slx = localStorage.getItem('soLanXem');
+        if (slx == null) {
+            slx = 0;
+        }
+        slx++;
+        localStorage.setItem('soLanXem', slx);
+
+        document.getElementById('slx').innerHTML = slx;
+    </script>
+</body>
+</html>

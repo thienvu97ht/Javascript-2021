@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="table_header">
+            <h1>CHU VI VÀ DIỆN TÍCH HÌNH TRÒN</h1>
+        </div>
+        <div class="table_body">
+            <p>
+                <span>Chu vi: </span>
+                <span id="chuvi" class="input"></span>
+            </p>
+            <p>
+                <span>Diện tích: </span>
+                <span id="dientich" class="input"></span>
+            </p>
+        </div>
+    </div>
+    <script>
+        var pi = 3.14;
+        var banKinh = prompt("Nhập bán kính của đường tròn (centimet)");
+
+        function tinhChuVi(banKinh) {
+            return 2*banKinh*pi;
+        }
+
+        function tinhDienTich(banKinh) {
+            return banKinh*banKinh*3.14;
+        }
+
+        document.getElementById("chuvi").innerHTML = tinhChuVi(banKinh) + ' cm';
+        document.getElementById("dientich").innerHTML = tinhDienTich(banKinh) + ' cm';
+    </script>
+</body>
+</html>
