@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: orange;
+            border: 1px solid #000;
+        }
+
+        #content {
+            text-align: center;
+            font-size: 36px;
+            padding: 15px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="content"></p>
+    </div>
+
+    <script>
+        var so1 = parseInt(prompt('Nhập số 1: '));
+        while (Number.isNaN(so1)){
+            alert('Vui lòng nhập số')
+            so1 = parseInt(prompt('Nhập lại số 1: '));
+        }
+        var so2 = parseInt(prompt('Nhập số 2: '));
+        while (Number.isNaN(so2)){
+            alert('Vui lòng nhập số')
+            so2 = parseInt(prompt('Nhập lại số 2: '));
+        }
+        var phepTinh = prompt('Nhập phép tính: ');
+
+        switch(phepTinh) {
+            case '+':
+                var kq = so1 + so2;
+                document.getElementById('content').innerHTML = `Kết quả của số 1 cộng số 2 là: ${kq}`;
+                break;
+            case '-':
+                var kq = so1 - so2;
+                document.getElementById('content').innerHTML = `Kết quả của số 1 trừ số 2 là: ${kq}`;
+                break;
+            case '*':
+                var kq = so1 * so2;
+                document.getElementById('content').innerHTML = `Kết quả của số 1 nhân số 2 là: ${kq}`;
+                break;
+            case '/':
+                var kq = so1 / so2;
+                document.getElementById('content').innerHTML = `Kết quả của số 1 chia số 2 là: ${kq}`;
+                break;
+            default :
+            document.write(`${pheptinh} không phải là phép tính hợp lệ`);
+            break
+        }
+    </script>
+</body>
+</html>
