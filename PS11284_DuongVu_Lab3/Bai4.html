@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: pink;
+            padding: 10px;
+        }
+
+        .container-border {
+            display: flex;
+            width: 500px;
+            border: 5px dotted #fff;
+            justify-content: space-around;
+        }
+
+        .container-content {
+            padding: 10px 0;
+        }
+
+        .content {
+            font-size: 20px;
+            margin-top: 0;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .select {
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-border">
+            <div class="container-content">
+                <p class="content">Ngày</p>
+                <select id="day" class="select"></select>
+            </div>
+            <div class="container-content">
+                <p class="content">Tháng</p>
+                <select id="month" class="select"></select>
+            </div>
+            <div class="container-content">
+                <p class="content">Năm</p>
+                <select id="year" class="select"></select>
+            </div>
+        </div>
+    </div>
+   
+    
+   
+
+    <script>
+        var day = document.getElementById("day");
+        var month = document.getElementById("month");
+        var year = document.getElementById("year");
+        function selectDay(selector)
+        {
+            var i;
+            for (i=1; i <= 31; i++){
+            selector.options[i-1] = new Option(i,i);
+            }
+        }
+
+        function selectMonth(selector)
+        {
+            var i = 1;
+            while(i <= 12) {
+                selector.options[i-1] = new Option(i,i);
+                i++;
+            }
+        }
+
+        function selectYear(selector)
+        {
+            var i = 1970;
+            do {
+                selector.options[i-1970] = new Option(i,i);
+                i++;
+            }
+            while(i <= 2021)
+        }
+        
+        selectDay(day);
+        selectMonth(month);
+        selectYear(year);
+    </script>
+</body>
+</html>
