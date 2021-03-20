@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            background-color: pink;
+        }
+
+        img {
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <img id="img" src="./cho1.jpg" alt="">
+    <script>
+        var img = document.getElementById('img');
+
+        function fover() {
+            img.src = './cho2.jpg';
+        }
+
+        function fout() {
+            img.src = './cho1.jpg';
+        }
+
+        img.addEventListener('mouseover', fover);
+        img.addEventListener('mouseout', fout);
+    </script>
+</body>
+</html>

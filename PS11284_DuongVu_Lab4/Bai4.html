@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            background-color: pink;
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            padding: 20px 0;
+            margin: 20px 0;
+            color: pink;
+            background-color: #000;
+            border: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button id="open">Mở Win</button>
+        <button id="print">In ấn</button>
+        <button id="move">Di chuyển 1 chút</button>
+        <button id="moveTo">Di chuyển tới điểm</button>
+        <button id="close">Đóng Win</button>
+    </div>
+    
+    <script>
+        var win;
+        var btnOpenWin = document.getElementById('open');
+        var btnCloseWin = document.getElementById('close');
+        var btnMoveWin = document.getElementById('move');
+        var btnMoveWinTo = document.getElementById('moveTo');
+        var btnPrint = document.getElementById('print');
+
+        function moWin() {
+            console.log('Mở window');
+            win = window.open('information.html', 'tt', 'width = 600, height = 300, top = 50, left = 600');
+            win.focus();
+        }
+
+        function close() {
+            console.log('Đóng window');
+            win.close();
+        }
+
+        function move() {
+            win.moveBy(5, 10);
+            win.focus;
+        }
+
+        function moveWinTo() {
+            var x = prompt('Nhập x');
+            var y = prompt('Nhập y');
+            win.moveTo(x, y);
+            win.focus
+        }
+
+        function printWin() {
+            win.print();
+        }
+
+        btnOpenWin.addEventListener('click', moWin);
+        btnCloseWin.addEventListener('click', close);
+        btnMoveWin.addEventListener('click', move);
+        btnMoveWinTo.addEventListener('click', moveWinTo);
+        btnPrint.addEventListener('click', printWin);
+
+    </script>
+</body>
+</html>

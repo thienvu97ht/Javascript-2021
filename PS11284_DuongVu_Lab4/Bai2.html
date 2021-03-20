@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container-heading {
+            background-color: pink;
+        }
+
+        h2 {
+            color: black;
+            padding: 10px 80px;
+            margin: 0;
+        }
+
+        .container-body {
+            background-color: black;
+        }
+
+        .container-profile-item {
+            padding: 5px 0;
+            margin-left: 30px;
+        }
+
+        .container-profile-item:first-child {
+            padding-top: 15px;
+        }
+
+        #diem, #name, #hocLuc {
+            color: pink;
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+        .btn {
+            padding-top: 10px;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        button {
+            width: 110px;
+            height: 36px;
+            background-color: pink;
+            border: none;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-heading">
+            <h2>STUDENT INFORMATION</h2>
+        </div>
+        <div class="container-body">
+            <div class="container-profile">
+                <div class="container-profile-item">
+                    <span id="name">NAME:</span>
+                </div>
+                <div class="container-profile-item">
+                    <span id="diem">SCORE:</span>
+                </div>
+                <div class="container-profile-item">
+                    <span id="hocLuc">RESULT:</span>
+                </div>
+            </div>
+            <div class="btn">
+                <button onclick="sv.hienThi()">SHOW</button>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <script>
+        var sv = new Object();
+        sv.hoTen = (prompt('Họ và tên')).toUpperCase();
+        sv.diem = prompt('Điểm');
+
+        sv.hienThi = function() {
+            if (this.diem >= 5) this.hocLuc = 'PASS'; else this.hocLuc = 'FAIL';
+            document.getElementById('name').innerHTML = "<span>NAME: " + this.hoTen +"</span>";
+            document.getElementById('diem').innerHTML = "<span>SCORE: " + this.diem +"</span>";
+            document.getElementById('hocLuc').innerHTML = "<span>RESULT: " + this.hocLuc +"</span>";
+        }
+    </script>
+</body>
+</html>
