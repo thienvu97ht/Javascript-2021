@@ -19,11 +19,137 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        .container {
+            width: 600px;
+            margin: auto;
+            background-color: pink;
+            font-size: 16px;
+            padding: 20px 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+
+        caption {
+            padding: 20px 0;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        button {
+            width: 60px;
+            height: 25px;
+            color: pink;
+            background-color: black;
+            border: none;
+        }
+        
+        hr {
+            margin: 20px 0 0 0;
+            border: 1px solid black;
+        }
+        h3 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <table>
+            <caption>CÁC SẢN PHẨM HOA</caption>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="chonhet"></th>
+                    <th>Tên sản phẩm hoa</th>
+                    <th>Giá</th>
+                    <th>Mua</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked></td>
+                    <td>Hạnh phúc trọn vẹn</td>
+                    <td>900000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked></td>
+                    <td>Con đường thành công</td>
+                    <td>1750000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked></td>
+                    <td>Phú quý</td>
+                    <td>1300000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked></td>
+                    <td>Vững bước</td>
+                    <td>1150000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked></td>
+                    <td>Một cõi đi về</td>
+                    <td>950000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table id="cart">
+            <caption>GIỎ HÀNG CỦA BẠN</caption>
+        </table>
+        <h3 id="title">TỔNG SỐ TIỀN:
+            <span id="tong">0</span>
+        </h3>
+    </div>
 
     <script>
+        document.getElementById('cart').style.display = 'none';
+        document.getElementById('title').style.display = 'none';
+        
+        function them(button) {
+            var row = button.parentElement.parentElement.cloneNode(true);
+            var btnXoa = row.querySelector('button');
+            btnXoa.innerText = 'Xóa';
+            btnXoa.setAttribute('onclick', 'xoa(this)');
+            document.getElementById('cart').appendChild(row);
+
+            document.getElementById('cart').style.display = '';
+            document.getElementById('title').style.display = '';
+            tinhTong();
+        }
+
+        function xoa(button) {
+            var row = button.parentElement.parentElement;
+            document.getElementById('cart').removeChild(row)
+
+            tinhTong();
+        }
+
+        function tinhTong() {
+            var cart = document.getElementById('cart');
+            var rows = cart.getElementsByTagName('tr');
+
+            var tong = 0;
+            for ( var i = 0; i < rows.length; i++) {
+                var price = rows[i].children[2].innerText;
+                price = parseInt(price);
+                tong += price;
+            }
+            document.getElementById('tong').innerText = tong;
+        }
         
     </script>
 </body>
