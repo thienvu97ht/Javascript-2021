@@ -75,31 +75,31 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="checkbox" class="chon" checked></td>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Hạnh phúc trọn vẹn</td>
                     <td>900000</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="chon" checked></td>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Con đường thành công</td>
                     <td>1750000</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="chon" checked></td>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Phú quý</td>
                     <td>1300000</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="chon" checked></td>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Vững bước</td>
                     <td>1150000</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="chon" checked></td>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Một cõi đi về</td>
                     <td>950000</td>
                     <td><button onclick="them(this)">Chọn</button></td>
@@ -151,6 +151,11 @@
             document.getElementById('tong').innerText = tong;
         }
         
+        function daott(obj) {
+            var row = obj.parentElement.parentElement;
+            var btn = row.getElementsByTagName('button')[0];
+            btn.disabled = !btn.disabled;
+        }
     </script>
 </body>
 </html>
