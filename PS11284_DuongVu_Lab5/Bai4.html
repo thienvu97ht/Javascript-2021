@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h2>Bạn nhớ tới mẹ khi nào:</h2>
+    <div id="ketqua"></div>
+    <form>
+        <input type="checkbox" name="me" value="Đói">Đói<br>
+        <input type="checkbox" name="me" value="No">No<br>
+        <input type="checkbox" name="me" value="Bệnh">Bệnh<br>
+        <input type="checkbox" name="me" value="Vui">Vui<br>
+        <input type="checkbox" name="me" value="Buồn">Buồn<br>
+        <button id="btn1" type="button" onclick="check()">Chọn</button>
+    </form>
+
+
+    <script>
+        function check() {
+            var arr = document.getElementsByName('me');
+            var kq = document.getElementById('ketqua');
+
+            var dem = 0;
+            kq.innerHTML = '';
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i].checked) {
+                    var v = arr[i].value;
+                    var chu = document.createTextNode(v);
+                    var tagp = document.createElement("p");
+                    tagp.appendChild(chu);
+                    kq.appendChild(tagp);
+                    dem++;
+                }
+            }
+            if (dem > 0) {
+                kq.className = 'abc';
+            } else {
+                kq.innerHTML = 'Bạn chưa chọn mục nào';
+                kq.className = 'xyz';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -97,7 +97,7 @@
         sv.diem = prompt('Điểm');
 
         sv.hienThi = function() {
-            if (this.diem >= 5) this.hocLuc = 'PASS'; else this.hocLuc = 'FAIL';
+            if (this.diem >= 5) this.hocLuc = 'PASS'; else this.hocLuc = 'FAILED';
             document.getElementById('name').innerHTML = "<span>NAME: " + this.hoTen +"</span>";
             document.getElementById('diem').innerHTML = "<span>SCORE: " + this.diem +"</span>";
             document.getElementById('hocLuc').innerHTML = "<span>RESULT: " + this.hocLuc +"</span>";

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-1">
+          <h3 class="heading">GIẢI PHƯƠNG TRÌNH ax<sup>2</sup> + bx +c = 0</h3>
+          <p class="desc">Số lần giải: 
+            <span id="solan"></span>
+            <span>&nbsp;lần</span>
+          </p>
+      
+          <div class="spacer"></div>
+      
+          <div class="form-group">
+            <label for="numberA" class="form-label">Nhập số a</label>
+            <input id="numberA" name="numberA" type="text" class="form-control">
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="numberB" class="form-label">Nhập số b</label>
+            <input id="numberB" name="numberB" type="text" class="form-control">
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="numberC" class="form-label">Nhập số c</label>
+            <input id="numberC" name="numberC" type="text" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="button-group">
+            <button id="giai" class="form-submit">Giải PT</button>
+            <button id="random" class="form-submit">Random Number</button>
+          </div>
+
+
+        </form>
+      </div>
+
+    <script src="./validator.js"></script>
+    <script src="./main.js"></script>
+    <script>
+
+        // Mong muốn của chúng ta
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isNumber('#numberA'),
+                Validator.isNumber('#numberB'),
+                Validator.isNumber('#numberC'),
+            ],
+            onSubmit: function(data) {
+              // Call API
+              // console.log(data)
+            }
+        });
+    </script>
+</body>
+</html>
