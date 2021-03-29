@@ -1,8 +1,8 @@
 // Khởi chạy ứng dụng
 function start() {
+    disableBtn();
     setInterval('showTime()', 1000);
 }
-start();
 
 // Số lần giải
 var soLan = sessionStorage.getItem('soLanGiai');
@@ -38,48 +38,6 @@ function getNumberRandom() {
     unDisableBtn();
 }
 
-// Hàm gải phương trình
-function giaiPT() {
-    var phuongTrinh = document.querySelector('#phuongTrinh');
-    var ketQua = document.querySelector('#ketQua');
-
-    numberA = inputElementA.value;
-    numberB = inputElementB.value;
-    numberC = inputElementC.value;
-
-    if(numberA == 0) {
-         
-        if(numberB == 0) {
-            if (numberC == 0) {
-            	alert('Phuong trinh vo so nghiem')
-                 
-            } else {
-                alert('Phuong trinh vo nghiem')
-            }
-        } else {
-            alert('Phuong trinh co nghiem duy nhat: '+(-numberC/numberB))
-        }
-    } else {
-        var delta = numberB*numberB - 4*numberA*numberC;
-        if(delta > 0) {
-            var x1 = ((-numberB+Math.sqrt(delta))/(2*numberA)).toFixed(2);
-            var x2 = ((-numberB-Math.sqrt(delta))/(2*numberA)).toFixed(2);
-            alert('Nghiem thu nhat x1 = '+x1+'\n Nghiem thu hai x2 = '+x2)
-        } else if ( delta == 0) {
-        	var sum = -numberB/2*numberA
-            alert('Phuong trinh co nghiem kep: x1 = x2 = '+sum)
-        } else {
-            alert('Phuong trinh vo nghiem')
-        }
-    }
-
-    // Gọi hàm getCount
-    getCount();
-
-    // Gọi hàm disable button
-    disableBtn()
-}
-
 // Hàm tăng biến đếm và in ra số lần
 function getCount() {
     soLan++;
@@ -109,6 +67,71 @@ function getValueChange() {
     unDisableBtn();
 }
 
+// Hàm kiểm tra
+function kiemTra(numberA, numberB, numberC, phuongTrinh) {
+
+    if (numberA > 10 || numberB > 10 || numberC > 10 || numberA < 0 || numberB < 0 || numberC < 0) {
+        phuongTrinh.innerHTML = `<p>Vui lòng nhập số a, b, c từ 0 đến 10</p>`;
+        ketQua.innerHTML = ``;
+    }
+}
+
+// Hàm gải phương trình
+function giaiPT() {
+    var phuongTrinh = document.querySelector('#phuongTrinh');
+    var ketQua = document.querySelector('#ketQua');
+
+    numberA = inputElementA.value;
+    numberB = inputElementB.value;
+    numberC = inputElementC.value;
+
+
+    if(numberA == 0) {
+         
+        if(numberB == 0) {
+            if (numberC == 0) {
+                phuongTrinh.innerHTML = `<p>Phương trình có vô số nghiệm</p>`;
+                ketQua.innerHTML = ``;
+                 
+            } else {
+                phuongTrinh.innerHTML = `<p>Phương trình vô nghiệm</p>`;
+                ketQua.innerHTML = ``;
+            }
+        } else {
+            var x = -numberC/numberB;
+            phuongTrinh.innerHTML = `<p>Phương trình có nghiệm duy nhất</p>`;
+            ketQua.innerHTML = `<p>x<sub>1</sub> = x<sub>2</sub> = ${x}</p>`;
+        }
+    } else {
+        var delta = numberB*numberB - 4*numberA*numberC;
+        if(delta > 0) {
+            var x1 = ((-numberB+Math.sqrt(delta))/(2*numberA)).toFixed(2);
+            var x2 = ((-numberB-Math.sqrt(delta))/(2*numberA)).toFixed(2);
+
+            phuongTrinh.innerHTML = `<p>Phương trình có 2 nghiệm phân biệt</p>`;
+            ketQua.innerHTML = 
+            `<p>x<sub>1</sub> = ${x1}</p>
+             <p>x<sub>2</sub> = ${x2}</p>`;
+        } else if ( delta == 0) {
+            var sum = -numberB/2*numberA
+            phuongTrinh.innerHTML = `<p>Phương trình có nghiệm kép</p>`;
+            ketQua.innerHTML = `<p>x<sub>1</sub> = x<sub>2</sub> = ${sum}</p>`;
+        } else {
+            phuongTrinh.innerHTML = `<p>Phương trình vô nghiệm</p>`;
+            ketQua.innerHTML = ``;
+        }
+    }
+
+    
+    // Gọi hàm getCount
+    getCount();
+
+    // Gọi hàm disable button
+    disableBtn();
+
+    kiemTra(numberA, numberB, numberC, phuongTrinh);
+}
+
 /* ------------------------------------------- */
 
 // Hiển thị thời gian
@@ -127,5 +150,4 @@ function showTime() {
     timeElement.innerHTML = html;
 }
 
-
-
+start();
