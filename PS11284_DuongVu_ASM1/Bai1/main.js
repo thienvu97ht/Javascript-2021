@@ -1,3 +1,8 @@
+// Khởi chạy ứng dụng
+function start() {
+    setInterval('showTime()', 1000);
+}
+start();
 
 // Số lần giải
 var soLan = sessionStorage.getItem('soLanGiai');
@@ -20,6 +25,7 @@ var giaiPtBtn = document.querySelector('#giai');
 randomBtn.addEventListener('click', getNumberRandom);
 giaiPtBtn.addEventListener('click', giaiPT);
 
+
 // Hàm cho số ngẫu nhiên
 function getNumberRandom() {
     var numberRandom1 = Math.floor(Math.random() * 11); 
@@ -28,10 +34,15 @@ function getNumberRandom() {
     inputElementA.value = numberRandom1;
     inputElementB.value = numberRandom2;
     inputElementC.value = numberRandom3;
+
+    unDisableBtn();
 }
 
 // Hàm gải phương trình
 function giaiPT() {
+    var phuongTrinh = document.querySelector('#phuongTrinh');
+    var ketQua = document.querySelector('#ketQua');
+
     numberA = inputElementA.value;
     numberB = inputElementB.value;
     numberC = inputElementC.value;
@@ -64,6 +75,9 @@ function giaiPT() {
 
     // Gọi hàm getCount
     getCount();
+
+    // Gọi hàm disable button
+    disableBtn()
 }
 
 // Hàm tăng biến đếm và in ra số lần
@@ -74,4 +88,44 @@ function getCount() {
 }
 
 // Hàm disable button giải phương trình
+function disableBtn() {
+    giaiPtBtn.disabled = true;
+    giaiPtBtn.classList.add('disable');
+}
+
+// Hàm undisable button giải phương trình
+function unDisableBtn() {
+    giaiPtBtn.disabled = false;
+    giaiPtBtn.classList.remove('disable');
+}
+
+// Khi value input thay đổi gọi đến hàm getValueChange
+inputElementA.addEventListener('input', getValueChange);
+inputElementB.addEventListener('input', getValueChange);
+inputElementC.addEventListener('input', getValueChange);
+
+// Hàm get value input
+function getValueChange() {
+    unDisableBtn();
+}
+
+/* ------------------------------------------- */
+
+// Hiển thị thời gian
+function showTime() {
+    var now = new Date();
+    var date = now.getDate();
+    var month = now.getMonth();
+    var year = now.getFullYear();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var timeElement = document.querySelector('#time');
+    html = `
+        <span> Bây giờ là ${date}/${month}/${year} ${hours}:${minutes}:${seconds}
+    `
+    timeElement.innerHTML = html;
+}
+
+
 
