@@ -11,7 +11,7 @@ if (soLan == null) {
 }
 document.querySelector('#solan').innerHTML = soLan;
 
-// Get input number element
+// Get input number Element
 var inputElementA = document.querySelector('#numberA');
 var inputElementB = document.querySelector('#numberB');
 var inputElementC = document.querySelector('#numberC');

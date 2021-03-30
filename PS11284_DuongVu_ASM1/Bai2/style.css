@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    color: #333;
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    width: 100%;
+    margin: 0;
+}
+
+.slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 18px;
+    transition: all ease 0.6s;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.next {
+    right: 2%;
+}
+  
+.prev {
+    left: 2%;
+}
+  
+.prev:hover, .next:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+  
+.text {
+    color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+  
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 3s;
+}
+  
+@-webkit-keyframes fade {
+    from {
+      opacity: .1
+    }
+    to {
+      opacity: 1
+    }
+}
+  
+@keyframes fade {
+    from {
+      opacity: .9
+    }
+    to {
+      opacity: 1
+    }
+}
+  
+/* CSS trên điện thoại */
+@media only screen and (max-width: 300px) {
+    .prev, .next,.text {
+      font-size: 11px
+    }
+}
