@@ -1,3 +1,4 @@
+
 // Đối tượng `validator`
 function Validator(options) {
     function getParent(element, selector) {
@@ -171,6 +172,15 @@ Validator.minLength = function(selector, min, message) {
     };
 }
 
+Validator.minLength = function(selector, max, message) {
+    return {
+        selector: selector,
+        test: function(value) {
+           return value.length <= max ? undefined : message || `Vui lòng nhập tối đa ${max} ký tự`;
+        }
+    };
+}
+
 Validator.isConfirmed = function(selector, getConfirmValue, message) {
     return {
         selector: selector,
@@ -180,24 +190,3 @@ Validator.isConfirmed = function(selector, getConfirmValue, message) {
     };
 }
 
-Validator.isNumber = function(selector, message) {
-    return {
-        selector: selector,
-        test: function(value) {
-            var regex = /^\-?(\d+\.?\d*|\d*\.?\d+)$/;
-
-            return regex.test(value) ? undefined : message || 'Trường này phải là số';
-        }
-    };
-}
-
-Validator.isNumber0to10 = function(selector, message) {
-    return {
-        selector: selector,
-        test: function(value) {
-            var regex = /^([0-9]|10)$/;
-
-            return regex.test(value) ? undefined : message || 'Trường này phải là số từ 0 đến 10';
-        }
-    };
-}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-1">
+          <h3 class="heading">Đăng ký thành viên</h3>
+      
+          <div class="spacer"></div>
+
+          <div class="form-group">
+            <label for="idsv" class="form-label">Mã sinh viên</label>
+            <input id="idsv" name="idsv" type="text" placeholder="VD: PS11284" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="fullname" class="form-label">Họ và tên</label>
+            <input id="fullname" name="fullname" type="text" placeholder="VD: Dương Vũ" class="form-control">
+            <span class="form-message"></span>
+          </div>
+      
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+            <span class="form-message"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="" class="form-label">Giới tính</label>
+            <div class="radio-form">
+              <div class="radio-item">
+                <input name="gender" id="male" type="radio" value="male" class="form-control">
+                <label for="male">Nam</label>
+              </div>
+              <div class="radio-item">
+                <input name="gender" id="female" type="radio" value="female" class="form-control">
+                <label for="female">Nữ</label>
+              </div>
+            </div>
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="" class="form-label">Sở thích</label>
+            <div class="radio-form">
+              <div class="radio-item">
+                <input name="hobbies" id="read" type="checkbox" value="read" class="form-control">
+                <label for="read">Đọc sách</label>
+              </div>
+              <div class="radio-item">
+                <input name="hobbies" id="travel" type="checkbox" value="travel" class="form-control">
+                <label for="travel">Du lịch</label>
+              </div>
+              <div class="radio-item">
+                <input name="hobbies" id="food" type="checkbox" value="food" class="form-control">
+                <label for="food">Ẩm thực</label>
+              </div>
+              <div class="radio-item">
+                <input name="hobbies" id="music" type="checkbox" value="music" class="form-control">
+                <label for="music">Âm nhạc</label>
+              </div>
+              <div class="radio-item">
+                <input name="hobbies" id="other" type="checkbox" value="other" class="form-control">
+                <label for="other">Khác</label>
+              </div>
+            </div>
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="nationality" class="form-label">Tỉnh/TP</label>
+            <select id="nationality" name="nationality" class="form-control">
+              <option value="">-- Chọn Quốc tịch --</option>
+              <option value="vn">Việt nam</option>
+              <option value="lao">Lào</option>
+              <option value="thai">Thái</option>
+              <option value="china">Trung Quốc</option>
+              <option value="usa">Mỹ</option>
+            </select>
+            <span class="form-message"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="note" class="form-label">Ghi chú</label>
+            <textarea id="note" name="note" type="text" class="form-note"></textarea>
+            <span class="form-message"></span>
+          </div>
+
+          <button class="form-submit">Đăng ký</button>
+        </form>
+      
+      </div>
+
+    <script src="./validator.js"></script>
+    <script>
+
+        // Mong muốn của chúng ta
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#idsv', 'Vui lòng nhập mã sinh viên của bạn'),
+                Validator.minLength('#idsv', 7, 'Vui lòng nhập mã sinh viên ít nhất 7 ký tự'),
+                Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
+                Validator.minLength('#fullname', 30, 'Vui lòng nhập họ tên tối đa 30 ký tự'),
+                Validator.isRequired('#email', 'Vui lòng nhập email của bạn'),
+                Validator.isEmail('#email'),
+                Validator.isRequired('input[name="gender"]'),
+                Validator.isRequired('input[name="hobbies"]'),
+                Validator.isRequired('#nationality', 'Vui lòng chọn quốc tịch của bạn'),
+
+            ],
+            onSubmit: function(data) {
+              // Call API
+              console.log(data);
+            }
+        });
+    </script>
+</body>
+</html>
