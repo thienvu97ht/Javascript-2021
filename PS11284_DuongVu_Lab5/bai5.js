@@ -51,5 +51,27 @@ function tinhTien() {
 
 }
 
+function tien(obj) {
+    var row = obj.parentNode;
+    soNgLon = row.children[1].innerText;
+    soTreEm = row.children[2].innerText;
+
+
+    t = soNgLon*1000000 + soTreEm*600000;
+    var formatT = (String(t)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    row.children[3].innerText = formatT + ' VNĐ';
+    tinhTien();
+}
+
+function anHien() {
+    var row_arr = document.getElementsByClassName('row');
+    for(var i = 1; i < row_arr.length; i++) {
+        if (row_arr[i].style.display == 'none') {
+            row_arr[i].style.display = '';
+        } else {
+            row_arr[i].style.display = 'none';
+        }
+    }
+}
 
 start();
