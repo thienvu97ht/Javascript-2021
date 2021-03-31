@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
+            background: #f1f1f1;
         }
 
         .container {
@@ -26,7 +29,7 @@
             font-size: 16px;
             padding: 20px 40px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+            box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.3);
         }
 
         table {
@@ -34,7 +37,8 @@
             border-collapse: collapse;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid black;
             padding: 6px;
             text-align: center;
@@ -57,16 +61,18 @@
             width: 60px;
             height: 25px;
         }
-        
+
         hr {
             margin-top: 25px;
             border: 1px solid black;
         }
+
         h3 {
             text-align: center;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <table>
@@ -83,31 +89,31 @@
                 <tr>
                     <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Hạnh phúc trọn vẹn</td>
-                    <td>900000</td>
+                    <td value="900000">900,000 VNĐ</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Con đường thành công</td>
-                    <td>1750000</td>
+                    <td value="1750000">1,750,000 VNĐ</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Phú quý</td>
-                    <td>1300000</td>
+                    <td value="1300000">1,300,000 VNĐ</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Vững bước</td>
-                    <td>1150000</td>
+                    <td value="1150000">1,150,000 VNĐ</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
                     <td>Một cõi đi về</td>
-                    <td>950000</td>
+                    <td value="950000">950,000 VNĐ</td>
                     <td><button onclick="them(this)">Chọn</button></td>
                 </tr>
             </tbody>
@@ -117,14 +123,14 @@
             <caption class="caption-bottom">GIỎ HÀNG CỦA BẠN</caption>
         </table>
         <h3 id="title">TỔNG SỐ TIỀN:
-            <span id="tong">0</span>
+            <span id="tong"></span>
         </h3>
     </div>
 
     <script>
         document.getElementById('cart').style.display = 'none';
         document.getElementById('title').style.display = 'none';
-        
+
         function them(button) {
             var row = button.parentElement.parentElement.cloneNode(true);
             var btnXoa = row.querySelector('button');
@@ -149,14 +155,18 @@
             var rows = cart.getElementsByTagName('tr');
 
             var tong = 0;
-            for ( var i = 0; i < rows.length; i++) {
-                var price = rows[i].children[2].innerText;
+            for (var i = 0; i < rows.length; i++) {
+                var price = rows[i].children[2].getAttribute('value');
                 price = parseInt(price);
                 tong += price;
             }
-            document.getElementById('tong').innerText = tong;
+            var format = (String(tong)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            var totalElement = document.getElementById('tong');
+            totalElement.innerText = format + ' VNĐ';
+
         }
-        
+
         function daott(obj) {
             var row = obj.parentElement.parentElement;
             var btn = row.getElementsByTagName('button')[0];
@@ -164,4 +174,5 @@
         }
     </script>
 </body>
+
 </html>
