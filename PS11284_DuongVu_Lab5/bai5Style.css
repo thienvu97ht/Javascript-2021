@@ -49,6 +49,8 @@ header, footer {
 button {
     width: 100px;
     height: 35px;
+    border-radius: 10px;
+    border: 0.5px solid black;
 }
 
 .head {
@@ -58,4 +60,11 @@ button {
 .head span {
     float: right;
     font-size: italic;
+}
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
 }
