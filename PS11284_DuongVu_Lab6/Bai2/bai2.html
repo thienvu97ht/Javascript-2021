@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./bai2Style.css">
+</head>
+
+<body>
+    <div class="main">
+        <form class="form" id="form-1">
+            <h3 class="heading">ĐẶT HÀNG</h3>
+
+            <div class="form-group">
+                <label for="tensp" class="form-label">Sản phẩm</label>
+                <input id="tensp" type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="loai" class="form-label">Loại</label>
+                <select id="loai" name="loai" class="form-control">
+                    <option value="">-- Chọn loại sản phẩm --</option>
+                    <option value="dt">Điện Thoại</option>
+                    <option value="mt">Máy Tính</option>
+                </select>
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="gia" class="form-label">Đơn giá</label>
+                <input id="gia" type="text" placeholder="Nhập đơn giá" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Nơi nhận hàng</label>
+                <div class="radio-form">
+                  <div class="radio-item">
+                    <input name="diachi" id="noithanh" type="radio" onclick="hienThi(false)" value="noithanh" class="form-control">
+                    <label for="noithanh">Nội thành</label>
+                  </div>
+                  <div class="radio-item">
+                    <input name="diachi" id="ngoaithanh" type="radio" onclick="hienThi(true)" value="ngoaithanh" class="form-control">
+                    <label for="ngoaithanh">Ngoại thành</label>
+                  </div>
+                </div>
+                <span class="form-message"></span>
+              </div>
+
+            <div class="form-group" id="vc">
+                <label for="phi_vc" class="form-label">Phí vận chuyển</label>
+                <input id="phi_vc" value="100000" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label></label>
+                <button class="form-submit" onclick="return kiemTra()" type="button">Đặt mua</button>
+            </div>
+            <div id="kq"></div>
+
+        </form>
+    </div>
+
+    <script src="./bai2.js"></script>
+</body>
+
+</html>
