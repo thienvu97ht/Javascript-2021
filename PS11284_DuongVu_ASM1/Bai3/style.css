@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color: #333;
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main {
+    background: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+    background-color: pink;
+    font-size: 16px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 6px;
+    text-align: center;
+}
+
+caption {
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+button {
+    width: 60px;
+    height: 25px;
+}
+
+hr {
+    margin: 20px 0 0 0;
+    border: 1px solid black;
+}
+h3 {
+    text-align: center;
+}
+
+.quantity {
+    width: 50px;
+}

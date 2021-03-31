@@ -98,24 +98,40 @@ function giaiPT() {
                 ketQua.innerHTML = ``;
             }
         } else {
-            var x = -numberC/numberB;
+            var x = Number((-numberC/numberB).toFixed(2));
+            var sum = x + x;
+            var product = (x * x).toFixed(2);
             phuongTrinh.innerHTML = `<p>Phương trình có nghiệm duy nhất</p>`;
-            ketQua.innerHTML = `<p>x<sub>1</sub> = x<sub>2</sub> = ${x}</p>`;
+            ketQua.innerHTML = 
+            `<p>x<sub>1</sub> = x<sub>2</sub> = ${x}</p>
+             <p>Tổng của x<sub>1</sub> + x<sub>2</sub> là = ${sum}</p>
+             <p>Tích của x<sub>1</sub> * x<sub>2</sub> là = ${product}</p>
+            `;
         }
     } else {
         var delta = numberB*numberB - 4*numberA*numberC;
         if(delta > 0) {
-            var x1 = ((-numberB+Math.sqrt(delta))/(2*numberA)).toFixed(2);
-            var x2 = ((-numberB-Math.sqrt(delta))/(2*numberA)).toFixed(2);
+            var x1 = Number(((-numberB+Math.sqrt(delta))/(2*numberA)).toFixed(2));
+            var x2 = Number(((-numberB-Math.sqrt(delta))/(2*numberA)).toFixed(2));
+            var sum = x1 + x2;
+            var product = (x1 * x2).toFixed(2);
 
             phuongTrinh.innerHTML = `<p>Phương trình có 2 nghiệm phân biệt</p>`;
             ketQua.innerHTML = 
             `<p>x<sub>1</sub> = ${x1}</p>
-             <p>x<sub>2</sub> = ${x2}</p>`;
+             <p>x<sub>2</sub> = ${x2}</p>
+             <p>Tổng của x<sub>1</sub> + x<sub>2</sub> là = ${sum}</p>
+             <p>Tích của x<sub>1</sub> * x<sub>2</sub> là = ${product}</p>`;
         } else if ( delta == 0) {
-            var sum = -numberB/2*numberA
+            var x = Number(-numberB/2*numberA).toFixed(2);
+            var sum = x + x;
+            var product = (x * x).toFixed(2);
             phuongTrinh.innerHTML = `<p>Phương trình có nghiệm kép</p>`;
-            ketQua.innerHTML = `<p>x<sub>1</sub> = x<sub>2</sub> = ${sum}</p>`;
+            ketQua.innerHTML = 
+            `<p>x<sub>1</sub> = x<sub>2</sub> = ${x}</p>
+             <p>Tổng của x<sub>1</sub> + x<sub>2</sub> là = ${sum}</p>
+             <p>Tích của x<sub>1</sub> * x<sub>2</sub> là = ${product}</p>
+            `;
         } else {
             phuongTrinh.innerHTML = `<p>Phương trình vô nghiệm</p>`;
             ketQua.innerHTML = ``;
