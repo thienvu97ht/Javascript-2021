@@ -18,11 +18,10 @@
                 <caption>
                     <select name="price" id="price">
                         <option value="">-- Chọn Mức giá --</option>
-                        <option value="0">0</option>
-                        <option value="200">200</option>
-                        <option value="400">400</option>
-                        <option value="600">600</option>
-                        <option value="800">800</option>
+                        <option value="200">Đến 200</option>
+                        <option value="400">Đến 400</option>
+                        <option value="600">Đến 600</option>
+                        <option value="800">Đến 800</option>
                     </select>
                 </caption>
                 <thead>
@@ -35,63 +34,64 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(0)"></td>
                         <td>Iphone 9</td>
-                        <td>700</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">700</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(1)"></td>
                         <td>Samsung</td>
-                        <td>400</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">400</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(2)"></td>
                         <td>Nokia</td>
-                        <td>100</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">100</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(3)"></td>
                         <td>Sony Xperia</td>
-                        <td>450</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">450</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(4)"></td>
                         <td>Motorola</td>
-                        <td>180</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">180</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(5)"></td>
                         <td>Oppo</td>
-                        <td>600</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">600</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" class="chon" checked></td>
+                        <td><input type="checkbox" class="chon" onchange="check(6)"></td>
                         <td>Bphone</td>
-                        <td>90</td>
-                        <td><input type="text" class="quantity"></td>
-                        <td><span id="total"></span></td>
+                        <td name="gia">90</td>
+                        <td><input type="text" class="quantity" onkeyup="tongTien()" ></td>
+                        <td><span class="giasp"></span></td>
                     </tr>
                     <tr>
                         <td colspan="4">Tổng</td>
-                        <td>0</td>
+                        <td id="tinhtong">0</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
+    <script src="./bai3.js"></script>
 </body>
 
 </html>
