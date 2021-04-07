@@ -44,10 +44,10 @@ function Validator(options) {
             errorElement.innerText = '';
             getParent(inputElement, options.formGroupSelector).classList.remove('invalid');
         }
-
+        
         return !errorMessage;
     }
-    
+
 
     // Lấy element của form cần validate
     var formElement = document.querySelector(options.form);
@@ -172,7 +172,7 @@ Validator.minLength = function(selector, min, message) {
     };
 }
 
-Validator.minLength = function(selector, max, message) {
+Validator.maxLength = function(selector, max, message) {
     return {
         selector: selector,
         test: function(value) {

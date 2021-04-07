@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="nationality" class="form-label">Tỉnh/TP</label>
                 <select id="nationality" name="nationality" class="form-control">
-                    <option value="0">-- Chọn Tỉnh --</option>
+                    <option value="">-- Chọn Tỉnh --</option>
                     <option value="1">TPHCM</option>
                     <option value="2">Hà Nội</option>
                     <option value="3">Cần Thơ</option>
@@ -44,8 +44,8 @@
             </div>
 
             <div class="form-group">
-                <label for="note" class="form-label">Ghi chú</label>
-                <textarea id="note" name="note" type="text" class="form-note"></textarea>
+                <label for="note" class="form-label">Thông tin bổ sung</label>
+                <textarea id="note" name="note" type="text" class="form-note" placeholder="Trường này không bắt buộc"></textarea>
                 <span class="form-message"></span>
             </div>
 
@@ -63,16 +63,14 @@
             formGroupSelector: '.form-group',
             errorSelector: '.form-message',
             rules: [
-                Validator.isRequired('#idsv', 'Vui lòng nhập mã sinh viên của bạn'),
-                Validator.minLength('#idsv', 7, 'Vui lòng nhập mã sinh viên ít nhất 7 ký tự'),
                 Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
-                Validator.minLength('#fullname', 30, 'Vui lòng nhập họ tên tối đa 30 ký tự'),
-                Validator.isRequired('#email', 'Vui lòng nhập email của bạn'),
-                Validator.isEmail('#email'),
-                Validator.isRequired('input[name="gender"]'),
-                Validator.isRequired('input[name="hobbies"]'),
-                Validator.isRequired('#nationality', 'Vui lòng chọn quốc tịch của bạn'),
-
+                Validator.minLength('#fullname', 3, 'Vui lòng nhập họ tên ít nhất 3 ký tự'),
+                Validator.maxLength('#fullname', 30, 'Vui lòng nhập họ tên tối đa 30 ký tự'),
+                Validator.isRequired('#cmnd', 'Vui lòng nhập số CMND của bạn'),
+                Validator.minLength('#cmnd', 9, 'Vui lòng nhập số CMND ít nhất 9 ký tự'),
+                Validator.maxLength('#cmnd', 12, 'Vui lòng nhập số CMND tối đa 12 ký tự'),
+                Validator.isRequired('#nationality', 'Vui lòng chọn Tỉnh/TP của bạn'),
+                
             ],
             onSubmit: function (data) {
                 // Call API

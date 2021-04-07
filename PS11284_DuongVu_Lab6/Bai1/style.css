@@ -77,6 +77,15 @@ img {
     margin-top: 50px;
 }
 
+.btn-auto {
+    background-color: rgba(255, 192, 203, 0.7);
+    border: none;
+    border-radius: 10px;
+    width: 120px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
 .start, .end {
     text-decoration: none;
     margin: 0 20px;
@@ -85,7 +94,7 @@ img {
     border-radius: 50%;
 }
 
-.start:hover, .end:hover {
+.start:hover, .end:hover, .btn-auto:hover {
     cursor: pointer;
     background-color: rgba(255, 192, 203, 1);
 }

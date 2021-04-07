@@ -7,12 +7,29 @@ showSlides();
 var btnEnd = document.querySelector('.end');
 var btnStart = document.querySelector('.start');
 
+// Add event auto btn
+var btnAuto = document.querySelector('#autoChange');
+btnAuto.addEventListener('click', toggleInterval);
+
 // Add event
 btnEnd.addEventListener('click', endImage );
 btnStart.addEventListener('click',startImage );
 
 function plusSlides(n) {
     changeImg(slideIndex += n);
+}
+
+var interval;
+
+function toggleInterval() {
+    if (!interval) {
+        interval = setInterval(function () {
+            showSlides();
+        }, 2000);
+    } else {
+        clearInterval(interval);
+        interval = null;
+    }
 }
 
 // Hàm chuyển ảnh về cuối

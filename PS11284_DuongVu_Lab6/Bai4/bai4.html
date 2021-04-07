@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+</head>
+
+<body>
+
+    <form name="formtim" action="kqtim.php" method="GET" onsubmit="return checksearch()">
+        <input onclick="if(this.value == 'Tìm kiếm') this.value = ''"
+            onblur="if(this.value == '') this.value = 'Tìm kiếm'" name="tukhoa" id="tukhoa" type="text"
+            value="Tìm kiếm">
+        <input name="btntim" id="btntim" type="submit" value="TÌM">
+    </form>
+
+    <script src="./checksearch.js"></script>
+</body>
+
+</html>
