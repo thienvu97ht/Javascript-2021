@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dương Vũ - PS11284</title>
 
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -14,14 +16,14 @@
     <div class="main">
         <div class="container">
             <table>
-                <caption>BÁN HÀNG</caption>
+                <caption class="table-header">BÁN HÀNG</caption>
                 <caption>
-                    <select name="price" id="price">
+                    <select name="price" id="price" class="select">
                         <option value="">-- Chọn Mức giá --</option>
-                        <option value="200">Đến 200</option>
-                        <option value="400">Đến 400</option>
-                        <option value="600">Đến 600</option>
-                        <option value="800">Đến 800</option>
+                        <option value="200000">Đến 200</option>
+                        <option value="400000">Đến 400</option>
+                        <option value="600000">Đến 600</option>
+                        <option value="800000">Đến 800</option>
                     </select>
                 </caption>
                 <thead>
@@ -30,63 +32,16 @@
                         <th>Đơn giá</th>
                         <th>Số lượng</th>
                         <th>Thành tiền</th>
+                        <th>Hành động</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(0)"></td>
-                        <td>Iphone 9</td>
-                        <td name="gia">700</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(1)"></td>
-                        <td>Samsung</td>
-                        <td name="gia">400</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(2)"></td>
-                        <td>Nokia</td>
-                        <td name="gia">100</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(3)"></td>
-                        <td>Sony Xperia</td>
-                        <td name="gia">450</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(4)"></td>
-                        <td>Motorola</td>
-                        <td name="gia">180</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(5)"></td>
-                        <td>Oppo</td>
-                        <td name="gia">600</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="chon" onchange="check(6)"></td>
-                        <td>Bphone</td>
-                        <td name="gia">90</td>
-                        <td><input type="text" class="quantity" onkeyup="tongTien()" ></td>
-                        <td><span class="giasp"></span></td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">Tổng</td>
-                        <td id="tinhtong">0</td>
-                    </tr>
+                <tbody id="list-products">
+
                 </tbody>
+                <tr>
+                    <td colspan="3">Tổng</td>
+                    <td id="tinhtong" colspan="3">0 VNĐ</td>
+                </tr>
             </table>
         </div>
     </div>

@@ -18,7 +18,7 @@ html {
 }
 
 .container {
-    width: 600px;
+    width: auto;
     margin: auto;
     background-color: pink;
     font-size: 16px;
@@ -30,6 +30,10 @@ html {
 table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.table-header {
+    font-size: 30px;
 }
 
 th, td {
@@ -59,4 +63,16 @@ h3 {
 
 .quantity {
     width: 50px;
+}
+
+.select {
+    border-radius: 10px;
+    height: 30px;
+    text-align: center;
+    outline: 0;
+}
+
+.edit, .delete {
+    cursor: pointer;
+    margin: 0 10px;
 }
