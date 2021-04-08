@@ -1,4 +1,16 @@
+var overlayElement = document.querySelector('.overlay');
+var formElement = document.querySelector('.main-form');
+
+var createBtn = document.querySelector('#create');
+var btnUpdate = document.querySelector('#update');
+
+var nameInputElement = document.querySelector('#name');
+var priceInputElement = document.querySelector('#priceForm');
+
 function start() {
+    overlayElement.style.display = 'none';
+    formElement.style.display = 'none';
+    document.querySelector('#update').style.display = 'none';
     renderProducts(products);
     disable();
 }
@@ -46,17 +58,17 @@ function renderProducts() {
     var htmls = products.map(function (product) {
         var formatPrice = (String(product.price)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         return `
-        <tr>
+        <tr class="Product-item-${product.id}">
             <td><input type="checkbox" class="chon" onchange="check(${product.id})"></td>
-            <td>${product.name}</td>
-            <td name="gia">${formatPrice} VNĐ</td>
+            <td class="col1">${product.name}</td>
+            <td class="col2" name="gia">${formatPrice} VNĐ</td>
             <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
             <td><span class="giasp"></span></td>
             <td>
-                <a class="edit" title="Edit" onclick="handleUpdateSv(${product.id})">
+                <a class="edit" title="Edit" onclick="handleUpdateProduct(${product.id})">
                     <i class="material-icons">&#xE254;</i>
                 </a>
-                <a class="delete" title="Delete" onclick="handleDeleteSv(${product.id})">
+                <a class="delete" title="Delete" onclick="handleDeleteProduct(${product.id})">
                     <i class="material-icons">&#xE872;</i>
                 </a>
             </td>
@@ -110,7 +122,88 @@ function tongTien() {
     document.getElementById('tinhtong').innerText = formatTotal + ' VNĐ';
 }
 
-// Thêm sản phẩm
+// Hàm showTable
+// Hàm nút bấm ẩn hiện form
+function showForm() {
 
+    if (overlayElement.style.display == 'none' || formElement.style.display == 'none') {
+        overlayElement.style.display = 'block';
+        formElement.style.display = 'block';
+    }
+};
+
+function hideForm() {
+    if (overlayElement.style.display == 'block' || formElement.style.display == 'block') {
+        overlayElement.style.display = 'none';
+        formElement.style.display = 'none';
+
+        nameInputElement.value = '';
+        priceInputElement.value = '';
+
+        createBtn.style.display = 'block';
+        btnUpdate.style.display = 'none';
+    }
+};
+
+// Thêm sản phẩm
+function addProduct() {
+    var id = products.length;
+    var name = nameInputElement.value;
+    var price = priceInputElement.value;
+
+    var data = {
+        id,
+        name, 
+        price
+    };
+
+    products.push(data);
+    document.querySelector('.main-form').style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
+
+    nameInputElement.value = '';
+    priceInputElement.value = '';
+    renderProducts();
+}
+
+// Sửa sản phẩm
+function handleUpdateProduct(id) {
+    
+    showForm(); 
+    nameInputElement.value = products[id].name;
+    priceInputElement.value = products[id].price;
+
+    createBtn.style.display = 'none';
+    btnUpdate.style.display = 'block';
+
+    btnUpdate.onclick = function () {
+        var newName = document.querySelector('input[name="name"]');
+        var newPrice = document.querySelector('input[name="priceForm"]');
+
+        var formData = {
+            id: id,
+            name: newName.value,
+            price: newPrice.value,
+        }
+
+        if (formData) {
+            products.splice(id, 1, formData);
+        }
+
+
+        nameInputElement.value = '';
+        priceInputElement.value = '';
+
+        createBtn.style.display = 'block';
+        btnUpdate.style.display = 'none';
+        hideForm();
+        renderProducts();
+    }
+};
+
+// Xóa sản phẩm
+function handleDeleteProduct() {
+    
+}
 
 start();

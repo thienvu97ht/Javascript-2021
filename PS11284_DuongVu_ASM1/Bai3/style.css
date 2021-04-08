@@ -7,7 +7,7 @@
 html {
     color: #333;
     font-size: 62.5%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .main {
@@ -20,7 +20,7 @@ html {
 .container {
     width: auto;
     margin: auto;
-    background-color: pink;
+    background-color: #fff;
     font-size: 16px;
     padding: 20px 40px;
     border-radius: 10px;
@@ -33,7 +33,32 @@ table {
 }
 
 .table-header {
-    font-size: 30px;
+    font-size: 26px;
+    display: flex;
+    justify-content:center;
+    padding: 10px 0;
+}
+
+.btn-add {
+    display: flex;
+    align-items: center;
+    float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #1dbfaf;
+    border: none;
+    padding: 10px;
+    margin-top: -43px;
+    outline: none;
+}
+
+.btn-add:hover {
+    cursor: pointer;
+    background-color: #1ab1a2;
 }
 
 th, td {
@@ -48,9 +73,8 @@ caption {
     font-size: 18px;
 }
 
-button {
-    width: 60px;
-    height: 25px;
+input[type="checkbox"] {
+    margin: 0 5px;
 }
 
 hr {
@@ -63,6 +87,7 @@ h3 {
 
 .quantity {
     width: 50px;
+    height: 20px;
 }
 
 .select {
@@ -75,4 +100,31 @@ h3 {
 .edit, .delete {
     cursor: pointer;
     margin: 0 10px;
+    color: #1dbfaf;
+}
+
+.edit:hover, .delete:hover {
+    color: #1ab1a2;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all linear 0.3s;
+}
+
+.main-form {
+    position: fixed;
+    z-index: 1;
+    width: 360px;
+    margin: 0;
+    padding: 0;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
 }

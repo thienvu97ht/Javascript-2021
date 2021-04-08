@@ -7,16 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dương Vũ - PS11284</title>
 
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="./form.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <label class="overlay" onclick="hideForm()"></label>
+
     <div class="main">
         <div class="container">
             <table>
-                <caption class="table-header">BÁN HÀNG</caption>
+                <div class="table-header">
+                    <p>QUẢN LÝ HÀNG HÓA</p>
+                </div>
+                <button class="btn-add" title="Add" onclick="showForm()">Thêm mới</button>
                 <caption>
                     <select name="price" id="price" class="select">
                         <option value="">-- Chọn Mức giá --</option>
@@ -44,6 +51,28 @@
                 </tr>
             </table>
         </div>
+
+        <div class="main-form">
+            <form action="" method="POST" class="form" id="form-1">
+                <h3 class="heading">Thêm Sản Phẩm</h3>
+    
+                <div class="spacer"></div>
+    
+                <div class="form-group">
+                    <label for="name" class="form-label">Tên Sản Phẩm</label>
+                    <input id="name" name="name" type="text" placeholder="VD: IPhone 12" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="priceForm" class="form-label">Giá sản phẩm</label>
+                    <input id="priceForm" name="priceForm" type="text" placeholder="VD: 10,000,000 VNĐ" class="form-control">
+                    <span class="form-message"></span>
+                </div>
+    
+                <button id="create" type="button" class="form-submit" onclick="addProduct()">Tạo mới</button>
+                <button id="update" type="button" class="form-submit">Update</button>
+            </form>
     </div>
 
     <script src="./bai3.js"></script>
