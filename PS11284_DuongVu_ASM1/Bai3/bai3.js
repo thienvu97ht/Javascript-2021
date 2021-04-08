@@ -60,7 +60,7 @@ function renderProducts() {
         return `
         <tr class="Product-item-${product.id}">
             <td><input type="checkbox" class="chon" onchange="check(${product.id})"></td>
-            <td>${product.name}</td>
+            <td ">${product.name}</td>
             <td name="gia">${formatPrice} VNĐ</td>
             <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
             <td><span class="giasp"></span></td>
@@ -124,8 +124,19 @@ function tongTien() {
 
 // 
 function changePrice() {
-    var arrGia = document.getElementsByName('gia');
-    var obj = document.getElementById('mucGia');
+    var priceSelected = document.getElementById('price');
+    var childrenElements = document.querySelectorAll('input[type="checkbox"]');
+
+    var flag = parseInt(priceSelected.value);
+
+    for( i = 0; products.length; i++) {
+        var gia = products[i].price;
+        if (gia < flag) {
+            childrenElements[i].parentElement.parentElement.style.display = '';
+        } else {
+            childrenElements[i].parentElement.parentElement.style.display = 'none';
+        }
+    }
 }
 
 // Hàm showTable
