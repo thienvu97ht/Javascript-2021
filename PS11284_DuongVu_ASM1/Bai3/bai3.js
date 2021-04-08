@@ -18,7 +18,7 @@ function start() {
 var products = [{
         id: 0,
         name: 'Iphone 12 Pro Max',
-        price: 31690000
+        price: 28690000
     },
     {
         id: 1,
@@ -60,8 +60,8 @@ function renderProducts() {
         return `
         <tr class="Product-item-${product.id}">
             <td><input type="checkbox" class="chon" onchange="check(${product.id})"></td>
-            <td class="col1">${product.name}</td>
-            <td class="col2" name="gia">${formatPrice} VNĐ</td>
+            <td>${product.name}</td>
+            <td name="gia">${formatPrice} VNĐ</td>
             <td><input type="text" class="quantity" onkeyup="tongTien()"></td>
             <td><span class="giasp"></span></td>
             <td>
@@ -122,6 +122,12 @@ function tongTien() {
     document.getElementById('tinhtong').innerText = formatTotal + ' VNĐ';
 }
 
+// 
+function changePrice() {
+    var arrGia = document.getElementsByName('gia');
+    var obj = document.getElementById('mucGia');
+}
+
 // Hàm showTable
 // Hàm nút bấm ẩn hiện form
 function showForm() {
@@ -164,6 +170,7 @@ function addProduct() {
     nameInputElement.value = '';
     priceInputElement.value = '';
     renderProducts();
+    disable();
 }
 
 // Sửa sản phẩm
@@ -198,12 +205,18 @@ function handleUpdateProduct(id) {
         btnUpdate.style.display = 'none';
         hideForm();
         renderProducts();
+        disable();
     }
 };
 
 // Xóa sản phẩm
-function handleDeleteProduct() {
-    
+function handleDeleteProduct(id) {
+    var index = products.findIndex((product) => product.id === id);
+    var result = confirm(`Bạn có muốn xóa sản phẩm ${products[index].name} không?`);
+
+    result ? products.splice(index, 1) : undefined;
+    renderProducts();
+    disable();
 }
 
 start();
