@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./search.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <form name="formtim" action="kqtim.php" method="GET" onsubmit="return checksearch()">
+                <div class="search-input-block">
+                    <i class="search-icon fas fa-search"></i>
+                    <input class="input-search" onclick="if(this.value == 'Tìm kiếm') this.value = ''"
+                        onblur="if(this.value == '') this.value = 'Tìm kiếm'" name="tukhoa" id="tukhoa" type="text"
+                        value="Tìm kiếm">
+                </div>
+
+                <input class="btn-tim" name="btntim" id="btntim" type="submit" value="TÌM">
+            </form>
+        </div>
+    </div>
+
+    <script src="./checksearch.js"></script>
+</body>
+
+</html>
