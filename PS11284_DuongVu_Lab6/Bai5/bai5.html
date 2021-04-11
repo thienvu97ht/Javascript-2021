@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./bai5Style.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-1">
+            <h3 class="heading">BÉ LÀM TOÁN</h3>
+            <p class="desc">Số lần giải:
+                <span id="solan"></span>
+                <span>&nbsp;lần</span>
+            </p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="numberA" class="form-label">Nhập số A</label>
+                <input id="numberA" name="numberA" type="text" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Chọn phép tính</label>
+                <div class="radio-form calculation-block">
+                    <div class="radio-item">
+                        <input id="cong" name="calculation" type="radio" value="cong" class="form-control" onchange="getValueChange()">
+                        <label for="cong">Cộng</label>
+                    </div>
+                    <div class="radio-item">
+                        <input id="tru" name="calculation" type="radio" value="tru" class="form-control" onchange="getValueChange()">
+                        <label for="tru">Trừ</label>
+                    </div>
+                    <div class="radio-item">
+                        <input id="nhan" name="calculation" type="radio" value="nhan" class="form-control" onchange="getValueChange()">
+                        <label for="nhan">Nhân</label>
+                    </div>
+                    <div class="radio-item">
+                        <input id="chia" name="calculation" type="radio" value="chia" class="form-control" onchange="getValueChange()">
+                        <label for="chia">Chia</label>
+                    </div>
+                </div>
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="numberB" class="form-label">Nhập số B</label>
+                <input id="numberB" name="numberB" type="text" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="container-body">
+                <div id="ketQua"></div>
+            </div>
+
+            <div class="button-group">
+                <button id="giai" class="form-submit">Giải</button>
+                <button id="random" class="form-submit">Random Number</button>
+            </div>
+
+            <p id="time" class="time-container"></p>
+        </form>
+    </div>
+
+    <script src="./validator.js"></script>
+    <script src="./bai5.js"></script>
+    <script>
+        // Mong muốn của chúng ta
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isNumber('#numberA'),
+                Validator.isNumber('#numberB'),
+                Validator.isNumber0to10('#numberA'),
+                Validator.isNumber0to10('#numberB'),
+                Validator.isRequired('input[name="calculation"]'),
+            ],
+            onSubmit: function (data) {
+                // Call API
+                // console.log(data)
+            }
+        });
+    </script>
+</body>
+
+</html>
