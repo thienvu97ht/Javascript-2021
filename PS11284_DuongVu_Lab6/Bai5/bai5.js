@@ -155,3 +155,14 @@ function showTime() {
 }
 
 start();
+
+/* 
+    1. Tự động cho số từ 0 đến 10
+    2. Tự động gán phép tính
+    3. Hiển thị giờ
+    4. Tính số lần giải
+    5. Ép kiểu cho giá trị nhập vào là số
+    6. Khi thay đổi giá trị sẽ tự enable button
+    7. Bắt lỗi trên form
+    8. Giá trị nhập vào phải là số từ 0 đến 10
+*/
