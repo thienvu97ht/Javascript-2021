@@ -18,9 +18,36 @@ html {
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    height: 100px;
+    height: 56px;
     background-color: #fff;
+}
+
+.header-left {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.bar-icon {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
+    margin-right: 10px;
+    cursor: pointer;
+    margin: 0 30px;
+}
+
+.header-logo {
+    width: 80px;  
+}
+
+.header-center {
+    display: flex;
+    flex: 1;
+    justify-content:center;
+    align-items: center;
 }
 
 form {
@@ -31,35 +58,81 @@ form {
 }
 
 .search-input-block {
-    border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    height: 30px;
+    overflow: hidden;
 }
 
-.search-icon {
+.keyboard-icon, .mic-icon {
     font-size: 16px;
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.9);
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .input-search {
-    margin-left: 10px;
-    width: 250px;
+    width: 530px;
     border: none;
     border-radius: 10px;
     height: 30px;
     outline: none;
     font-size: 16px;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 1);
+    padding-left: 10px;
 }
 
 .btn-tim {
     width: 80px;
-    margin-left: 20px;
-    box-shadow: 2px 2px 5px rgb(148, 148, 148);
     border: none;
-    border-radius: 5px;
     height: 30px;
     outline: none;
     letter-spacing: 2px;
     cursor: pointer;
     font-weight: 500;
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.mic-icon {
+    font-size: 20px;
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-left: 15px;
+}
+
+.header-right {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 32px;
+}
+
+.camera-icon, .box-icon, .bell-icon {
+    font-size: 18px;
+    padding: 0 16px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.header_img-user {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 16px;
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+    
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .search-input-block {
+        width: 441px;
+    }
+
+}

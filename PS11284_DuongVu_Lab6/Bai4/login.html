@@ -15,16 +15,27 @@
 
 <body>
 
-    <div class="container">
-        <div class="header">
-            <form onsubmit="return checklogin()" name="flogin" action="xulylogin.php" method="POST">
-                <label for="u">Username</label>
-                <input name="u" id="u" type="text">
-                <label for="p">Password</label>
-                <input name="p" id="p" type="text">
-                <input type="submit" name="sub" id="sub" value="login">
-            </form>
-        </div>
+    <div class="main">
+        <form onsubmit="return checklogin()" name="flogin" action="xulylogin.php" method="POST" class="form" id="form-1">
+            <h3 class="heading">ĐĂNG NHẬP</h3>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="u" class="form-label">Username</label>
+                <input id="u" name="u" type="text" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="p" class="form-label">Password</label>
+                <input id="p" name="p" type="password" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <input class="form-submit" type="submit" name="sub" id="sub" value="LOGIN">
+        </form>
+
     </div>
 
     <script src="./checklogin.js"></script>

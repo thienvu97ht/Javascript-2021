@@ -17,16 +17,28 @@
 
     <div class="container">
         <div class="header">
-            <form name="formtim" action="kqtim.php" method="GET" onsubmit="return checksearch()">
-                <div class="search-input-block">
-                    <i class="search-icon fas fa-search"></i>
-                    <input class="input-search" onclick="if(this.value == 'Tìm kiếm') this.value = ''"
-                        onblur="if(this.value == '') this.value = 'Tìm kiếm'" name="tukhoa" id="tukhoa" type="text"
-                        value="Tìm kiếm">
-                </div>
-
-                <input class="btn-tim" name="btntim" id="btntim" type="submit" value="TÌM">
-            </form>
+            <div class="header-left">
+                <i class="bar-icon fas fa-bars"></i>
+                <img class="header-logo" src="./youtube-logo.png" alt="">
+            </div>
+            <div class="header-center">
+                <form name="formtim" action="kqtim.php" method="GET" onsubmit="return checksearch()">
+                    <div class="search-input-block">
+                        <input class="input-search" onclick="if(this.value == 'Tìm kiếm') this.value = ''"
+                            onblur="if(this.value == '') this.value = 'Tìm kiếm'" name="tukhoa" id="tukhoa" type="text"
+                            value="Tìm kiếm">
+                        <i class="keyboard-icon far fa-keyboard"></i>
+                        <input class="btn-tim" name="btntim" id="btntim" type="submit" value="TÌM">
+                    </div>
+                </form>
+                <i class="mic-icon fas fa-microphone"></i>
+            </div>
+            <div class="header-right">
+                <i class="camera-icon fas fa-video"></i>
+                <i class="box-icon fas fa-th"></i>
+                <i class="bell-icon fas fa-bell"></i>
+                <img class="header_img-user" src="./cho1.jpg" alt="">
+            </div>
         </div>
     </div>
 
