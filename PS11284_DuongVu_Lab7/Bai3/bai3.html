@@ -12,43 +12,77 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body ng-app="b2">
+<body ng-app="b3">
 
-    <div class="container" ng-controller="hienthi">
+    <div class="container" ng-controller="ctr1">
         <form action="">
             <div class="form-group">
-                <label for="">Chiều dài</label>
-                <input type="text" name="dai" ng-model="dai" class="form-control">
+                <label for="">Tên SP</label>
+                <input type="text" name="tensp" ng-model="tensp" required minlength="2" maxlength="30" class="form-control bg-primary">
+                <em ng-if="frm.tensp.$invalid" class="text-danger h6">
+                    Vui lòng nhập tên sản phẩm từ 2 đến 30 ký tự
+                </em>
             </div>
             <div class="form-group">
-                <label for="">Chiều rộng</label>
-                <input type="text" name="rong" ng-model="rong" class="form-control">
+                <label for="">Số lượng</label>
+                <input type="number" name="soluong" ng-model="soluong" min="1" class="form-control bg-warning">
+                <em ng-if="frm.soluong.$invalid || soluong>100" class="text-danger h6">
+                    Vui lòng nhập số lượng từ 1 đến 100
+                </em>
             </div>
             <div class="form-group">
-                <label for="">Chu vi</label>
-                <span class="form-control">{{chuvi}}</span>
+                <label for="">Nhà sản xuất</label>
+                <select name="nsx" id="" ng-model="nsx" class="form-control bg-secondary text-white">
+                    <option value="">-- Chọn NSX --</option>
+                    <option value="1">Samsung</option>
+                    <option value="2">Toshiba</option>
+                    <option value="3">HTC</option>
+                </select>
+                <em ng-if="!nsx || nsx==0" class="text-danger h6">
+                    Vui lòng chọn 1 nhà sản xuất
+                </em>
             </div>
             <div class="form-group">
-                <label for="">Diện tích</label>
-                <span class="form-control">{{dientich}}</span>
+                <label for="">Tình trạng</label>
+                <fieldset class="border border-secondary p-3">
+                    <input id="cu" name="tinhtrang" ng-model="tinhtrang" type="radio" value="1"> 
+                    <label for="cu">Hàng cũ</label>
+                    <input id="moi" name="tinhtrang" ng-model="tinhtrang" type="radio" value="2"> 
+                    <label for="moi">Hàng mới</label>
+                </fieldset>
+                <em ng-if="!tinhtrang" class="text-danger h6">
+                    Vui lòng chọn tình trạng hàng
+                </em>
             </div>
+
             <div class="form-group">
-                <button class="btn btn-warning" ng-click="tinhtoan()">Tính toán</button>
+                <label for="">Màu sắc</label>
+                <fieldset class="border border-secondary p-3">
+                    <input id="do" type="checkbox" ng-model="maudo" value="do"> 
+                    <label for="do">Đỏ</label>
+                    <input id="den" type="checkbox" ng-model="mauden" value="den"> 
+                    <label for="den">Đen</label>
+                    <input id="trang" type="checkbox" ng-model="mautrang" value="trang"> 
+                    <label for="trang">Trắng</label>
+                </fieldset>
+                <em ng-if="!maudo && !mauden && !mautrang" class="text-danger h6">
+                    Vui lòng chọn màu
+                </em>
+            </div>
+
+
+
+            <div class="form-group">
+                <button class="btn btn-warning" ng-click="tinhtoan()">Nhập sản phẩm</button>
             </div>
         </form>
     </div>
 
     <script>
-        app = angular.module('b2', []);
-        app.controller('hienthi', xuly);
-
+        app = angular.module('b3', []);
+        app.controller('ctr1', xuly);
         function xuly($scope) {
-            $scope.tinhtoan = function () {
-                var d = parseFloat($scope.dai);
-                var r = parseFloat($scope.rong);
-                $scope.chuvi = (d + r) * 2;
-                $scope.dientich = (d * r);
-            }
+            
         }
     </script>
 </body>
