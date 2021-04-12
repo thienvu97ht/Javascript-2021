@@ -40,14 +40,14 @@
 
             <div class="form-group">
                 <label for="" class="form-label">Nhà sản xuất</label>
-                <select name="nsx" id="" ng-model="nsx" class="form-control">
+                <select name="nsx" id="nhaSx" ng-model="nsx" class="form-control">
                     <option value="">-- Chọn NSX --</option>
                     <option value="1">Samsung</option>
                     <option value="2">Toshiba</option>
                     <option value="3">HTC</option>
                 </select>
                 <em ng-if="!nsx || nsx==0" class="form-message text-danger">
-                    Vui lòng chọn 1 nhà sản xuất
+                    Vui lòng chọn nhà sản xuất
                 </em>
             </div>
 
@@ -100,6 +100,7 @@
         </form>
     </div>
 
+    <script src="./bai3.js"></script>
     <script>
         app = angular.module('b3', []);
         app.controller('ctr1', xuly);
