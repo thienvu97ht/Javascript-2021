@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="b1">
+    
+    <div class="container" ng-controller="hienthi">
+        <div class="caption">
+            <h4>Thông tin sinh viên</h4>
+            <img src="images/{{photo}}" alt="">
+        </div>
+        <ul>
+            <li><span>Họ tên : </span>{{hoten}}</li>
+            <li><span>Ngày sinh: </span>{{ngaysinh}}</li>
+            <li><span>Giới tính :</span>{{gender}}</li>
+            <li><span>Điểm : </span>{{mark}}</li>
+        </ul>
+    </div>
+
+    <script>
+        app = angular.module('b1', []);
+        app.controller('hienthi', xuly);
+        function xuly($scope) {
+            $scope.hoten = 'Dương Đình Thiện Vũ';
+            $scope.ngaysinh = '21/10/1997';
+            $scope.gender = 'Nam'
+            $scope.photo = 'cho1.jpg';
+            $scope.mark = 10;
+        }
+    </script>
+</body>
+</html>
