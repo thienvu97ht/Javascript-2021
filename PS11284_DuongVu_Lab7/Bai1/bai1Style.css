@@ -34,6 +34,12 @@ html {
     margin-top: 50px;
 }
 
+.cv-body {
+    background-color: white;
+    border-radius: 27px;
+    overflow: hidden;
+}
+
 /* LEFT */
 
 /* TOP */
@@ -53,7 +59,7 @@ html {
     border-radius: 40px;
 }
 
-.cv-profile-name, .cv-fontend-text {
+.cv-profile-name {
     font-size: 26px;
     text-align: center;
     font-weight: 500;
@@ -64,23 +70,9 @@ html {
     margin: 20px 0;
 }
 
-.cv-fontend {
-    width: 150px;
-    background-color: #e9edee;
-    border-radius: 10px;
-    margin: 0 auto;
-}
-
-.cv-fontend-text {
-    padding: 8px 0;
-    text-align: center;
-    color: #747682;
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-
 .cv-profile-social {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .social-icon {
@@ -95,6 +87,10 @@ html {
 }
 
 /* BOTTOM */
+
+.cv-profile-bottom {
+    padding-bottom: 10px;
+}
 
 .cv-profile-info-block {
     display: flex;
@@ -116,24 +112,50 @@ html {
 
 /* RIGHT */
 
+/* TOP */
 .cv-right {
-    height: 400px;
+    padding-right: 30px;
 }
 
 .cv-right-about {
-    background-color: blue;
+    background-color: white;
     height: 200px;
+    padding: 20px 0;
 }
 
-.cv-desgn {
-    background-color: green;
-    height: 200px;
+.about-header {
+    font-size: 26px;
+    font-weight: 600;
+    color: #505050;
+    margin: 0;
+    margin-top: 20px;
 }
 
-.cv-dev {
-    background-color: orange;
-    height: 200px;
+.about-content-body {
+    font-size: 14px;
+    color: #504f4f;
+    margin-top: 20px;
 }
+
+
+/* BOTTOM */
+/* LEFT */
+.cv-design, .cv-dev {
+    background-color: white;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 27px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.img-design {
+    width: 50px;
+    opacity: 0.5;
+}
+
+/* RIGHT */
 
 /*  */
 
@@ -152,6 +174,6 @@ canvas {
 #particles-js {
     position: absolute;
     width: 100%;
-    height: 800px;
+    height: 650px;
     background-color: #000000;
 }
