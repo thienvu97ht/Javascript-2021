@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,124 @@
     <title>Dương Vũ - PS11284</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./grid.css">
+    <link rel="stylesheet" href="./bai1Style.css">
 </head>
+
 <body ng-app="b1">
-    
-    <div class="container" ng-controller="hienthi">
-        <div class="caption">
-            <h4>Thông tin sinh viên</h4>
-            <img src="images/{{photo}}" alt="">
+    <div id="particles-js"></div>
+    <div class="main">
+        <div class="container" ng-controller="hienthi">
+            <!-- <div class="caption">
+                <h4>Thông tin sinh viên</h4>
+                <img src="images/{{photo}}" alt="">
+            </div>
+            <ul>
+                <li><span>Họ tên : </span>{{hoten}}</li>
+                <li><span>Ngày sinh: </span>{{ngaysinh}}</li>
+                <li><span>Giới tính :</span>{{gender}}</li>
+                <li><span>Điểm : </span>{{mark}}</li>
+            </ul> -->
+            <div class="grid wide custom-wide">
+                <div class="row">
+                    <div class="col l-4">
+                        <div class="cv-profile">
+                            <div class="cv-profile-top">
+                                <div class="cv-profile-top-block">
+                                    <img src="images/{{photo}}" alt="" class="cv-img">
+                                    <p class="cv-profile-name">{{hoten}}</p>
+                                    <div class="cv-fontend">
+                                        <p class="cv-fontend-text">FontEnd</p>
+                                    </div>
+                                    <div class="cv-profile-social">
+                                        <i class="social-icon fab fa-facebook-f"></i>
+                                        <i class="social-icon fab fa-instagram"></i>
+                                        <i class="social-icon fab fa-twitter"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cv-profile-bottom">
+                                <div class="cv-profile-info">
+                                    <div class="cv-profile-info-block">
+                                        <i class="info-icon far fa-calendar"></i>
+                                        <p class="cv-profile-info-text">{{ngaysinh}}</p>
+                                    </div>
+                                   
+                                    <div class="cv-profile-info-block">
+                                        <i class="info-icon far fa-calendar"></i>
+                                        <p class="cv-profile-info-text">{{quequan}}</p>
+                                    </div>
+
+                                    <div class="cv-profile-info-block">
+                                        <i class="info-icon far fa-calendar"></i>
+                                        <p class="cv-profile-info-text">{{ngaysinh}}</p>
+                                    </div>
+
+                                    <div class="cv-profile-info-block">
+                                        <i class="info-icon far fa-calendar"></i>
+                                        <p class="cv-profile-info-text">{{ngaysinh}}</p>
+                                    </div>
+
+                                    <div class="cv-profile-info-block">
+                                        <i class="info-icon far fa-calendar"></i>
+                                        <p class="cv-profile-info-text">{{ngaysinh}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l-8">
+                        <div class="cv-right">
+                            <div class="row">
+                                <div class="col l-12">
+                                    <div class="cv-right-about">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col l-6">
+                                    <div class="cv-desgn">
+
+                                    </div>
+                                </div>
+                                <div class="col l-6">
+                                    <div class="cv-dev">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ul>
-            <li><span>Họ tên : </span>{{hoten}}</li>
-            <li><span>Ngày sinh: </span>{{ngaysinh}}</li>
-            <li><span>Giới tính :</span>{{gender}}</li>
-            <li><span>Điểm : </span>{{mark}}</li>
-        </ul>
+
     </div>
+
 
     <script>
         app = angular.module('b1', []);
         app.controller('hienthi', xuly);
+
         function xuly($scope) {
-            $scope.hoten = 'Dương Đình Thiện Vũ';
-            $scope.ngaysinh = '21/10/1997';
-            $scope.gender = 'Nam'
-            $scope.photo = 'cho1.jpg';
+            $scope.hoten = 'Lalisa Manobal';
+            $scope.ngaysinh = '27/03/1997';
+            $scope.quequan = 'Buriram, Thái Lan';
+            $scope.gender = 'Nữ'
+            $scope.photo = 'lisa.jpg';
             $scope.mark = 10;
         }
     </script>
+
+    <script src="./bai1.js"></script>
+    <script src="./particles.js"></script>
 </body>
+
 </html>

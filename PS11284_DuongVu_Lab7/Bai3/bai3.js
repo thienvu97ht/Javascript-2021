@@ -8,4 +8,5 @@ var nsxInput = document.querySelector('select[name="nsx"]');
     2 <= nameSpInput.length <= 30
     1 < = parseInt(soLuongInput.value) <= 100
     nsxInput.value == 1, 2 ,3
+    
 */
