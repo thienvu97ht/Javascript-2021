@@ -155,3 +155,8 @@ canvas {
     height: 100%;
     background-color: #000000;
 }
+
+.text-center {
+    font-size: 14px;
+    text-align: center;
+}
