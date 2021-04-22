@@ -1,131 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dương Vũ - PS11284</title>
 
     <style>
-        html, body {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
 
-        @font-face {
-            src:url(./PRIMETIME.ttf);
-            font-family: PRIMETIME;
-        }
+      @font-face {
+        src: url(./PRIMETIME.ttf);
+        font-family: PRIMETIME;
+      }
 
-        .container-heading {
-            background-color: pink;
-        }
+      .container-heading {
+        background-color: pink;
+      }
 
-        h2 {
-            color: black;
-            padding: 10px 80px;
-            margin: 0;
-            font-family: PRIMETIME;
-        }
+      h2 {
+        color: black;
+        padding: 10px 80px;
+        margin: 0;
+        font-family: PRIMETIME;
+      }
 
-        .container-body {
-            background-color: black;
-            text-align: center;
-        }
+      .container-body {
+        background-color: black;
+        text-align: center;
+      }
 
-        #phuongTrinh, #ketQua {
-            color: pink;
-            font-size: 26px;
-            font-family: sans-serif;
-            font-weight: 900;
-        }
+      #phuongTrinh,
+      #ketQua {
+        color: pink;
+        font-size: 26px;
+        font-family: sans-serif;
+        font-weight: 900;
+      }
 
-        #phuongTrinh {
-            padding-top: 20px;
-        }
+      #phuongTrinh {
+        padding-top: 20px;
+      }
 
-        #ketQua {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      #ketQua {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .btn {
-            padding-top: 10px;
-            padding-bottom: 30px;
-        }
-        
-        button {
-            width: 110px;
-            height: 30px;
-            background-color: pink;
-            border: none;
-            font-family: PRIMETIME;
-        }
+      .btn {
+        padding-top: 10px;
+        padding-bottom: 30px;
+      }
+
+      button {
+        width: 110px;
+        height: 30px;
+        background-color: pink;
+        border: none;
+        font-family: PRIMETIME;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="container-heading">
-            <h2>SOLVE QUADRATIC EQUATIONS</h2>
+      <div class="container-heading">
+        <h2>SOLVE QUADRATIC EQUATIONS</h2>
+      </div>
+      <div class="container-body">
+        <div id="phuongTrinh">EQUATION</div>
+        <div id="ketQua">RESULT</div>
+        <div class="btn">
+          <button onclick="ptb2.nhap()">ENTER A B C</button>
+          <button onclick="ptb2.giai()">SUBMIT</button>
         </div>
-        <div class="container-body">
-            <div id="phuongTrinh">EQUATION</div>
-            <div id="ketQua">RESULT</div>
-            <div class="btn">
-                <button onclick="ptb2.nhap()">ENTER A B C</button>
-                <button onclick="ptb2.giai()">SUBMIT</button>
-            </div>
-        </div>
-        
+      </div>
     </div>
 
-
     <script>
-        var ptb2 = new Object();
-        ptb2.a = null;
-        ptb2.b = null;
-        ptb2.c = null;
-        ptb2.nhap = function() {
-            this.a = window.parseInt(prompt('Nhập số a: '));
-            while (Number.isNaN(this.a)){
-                alert('Vui lòng nhập số')
-                this.a = parseInt(prompt('Nhập lại số a: '));
-            }
+      var ptb2 = {
+        a: null,
+        b: null,
+        c: null,
+        nhap: function () {
+          this.a = window.parseInt(prompt("Nhập số a: "));
+          while (Number.isNaN(this.a)) {
+            alert("Vui lòng nhập số");
+            this.a = parseInt(prompt("Nhập lại số a: "));
+          }
 
-            this.b = window.parseInt(prompt('Nhập số b: '));
-            while (Number.isNaN(this.b)){
-                alert('Vui lòng nhập số')
-                this.b = parseInt(prompt('Nhập lại số b: '));
-            }
+          this.b = window.parseInt(prompt("Nhập số b: "));
+          while (Number.isNaN(this.b)) {
+            alert("Vui lòng nhập số");
+            this.b = parseInt(prompt("Nhập lại số b: "));
+          }
 
-            this.c = window.parseInt(prompt('Nhập số c: '));
-            while (Number.isNaN(this.c)){
-                alert('Vui lòng nhập số')
-                this.c = parseInt(prompt('Nhập lại số c: '));
-            }
+          this.c = window.parseInt(prompt("Nhập số c: "));
+          while (Number.isNaN(this.c)) {
+            alert("Vui lòng nhập số");
+            this.c = parseInt(prompt("Nhập lại số c: "));
+          }
 
-            str = this.a + "x<sup>2</sup> + " + this.b + "x + " + this.c + " = 0" ;
-            document.getElementById("phuongTrinh").innerHTML = str;
-        }
-        ptb2.giai = function() {
-            var delta = this.b*this.b - 4*this.a*this.c;
-            if (delta < 0) {
-                document.getElementById('ketQua').innerHTML = "<span>Phuong trinh vo nghiem</span>";
-            } else if (delta == 0) {
-                var x0 = -this.b/(2*this.this.a);
-                document.getElementById('ketQua').innerHTML = "<span>Phuong trinh co nghiem kep x0 =" + x0 + "</span>";
-            } else {
-                var x1 = ((-this.b + Math.sqrt(delta))/(2*this.a)).toFixed(2);
-                var x2 = ((-this.b - Math.sqrt(delta))/(2*this.a)).toFixed(2);
-                document.getElementById('ketQua').innerHTML = `<span>Phuong trinh co 2 nghiem: <br> x1 = ${x1} và x2 = ${x2}</span>`;
-            }
-        }
-
+          str = this.a + "x<sup>2</sup> + " + this.b + "x + " + this.c + " = 0";
+          document.getElementById("phuongTrinh").innerHTML = str;
+          console.log(this);
+        },
+        giai: function () {
+          var delta = this.b * this.b - 4 * this.a * this.c;
+          if (delta < 0) {
+            document.getElementById("ketQua").innerHTML =
+              "<span>Phuong trinh vo nghiem</span>";
+          } else if (delta == 0) {
+            var x0 = -this.b / (2 * this.this.a);
+            document.getElementById("ketQua").innerHTML =
+              "<span>Phuong trinh co nghiem kep x0 =" + x0 + "</span>";
+          } else {
+            var x1 = ((-this.b + Math.sqrt(delta)) / (2 * this.a)).toFixed(2);
+            var x2 = ((-this.b - Math.sqrt(delta)) / (2 * this.a)).toFixed(2);
+            document.getElementById(
+              "ketQua"
+            ).innerHTML = `<span>Phuong trinh co 2 nghiem: <br> x1 = ${x1} và x2 = ${x2}</span>`;
+          }
+        },
+      };
     </script>
-</body>
+  </body>
 </html>

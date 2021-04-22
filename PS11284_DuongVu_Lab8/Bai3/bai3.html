@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./bai3Style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div id="particles-js"></div>
+        <div class="select-group">
+            <select id="courses" class="form-control" onchange="selectValue()">
+                <option value="">-- Chọn Bài Học --</option>
+                <option value="b1">Bài 1: Javascript là gì</option>
+                <option value="b2">Bài 2: Biến kiểu dữ liệu toán tử và biểu thức trong Javascript</option>
+                <option value="b3">Bài 3: Cấu Trúc Điều Khiển trong Javacript</option>
+                <option value="b4">Bài 4: Lập trình đối tượng trong Javascript và mô hình BOM</option>
+                <option value="b5">Bài 5: Mô hình DOM trong javascript</option>
+                <option value="b6">Bài 6: Vài vấn đề bổ sung trong javascript</option>
+                <option value="b7">Bài 7: Kiểm tra dữ liệu trong form với javascript</option>
+                <option value="b8">Bài 8: Giới Thiệu về Javascript Framework</option>
+              </select>
+              <button class="btn-select" onclick="redirect()">Xem Bài Học</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./particles.js"></script>
+    <script src="./bai3.js"></script>
+</body>
+
+</html>
