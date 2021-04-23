@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Vũ - PS11284</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./bai3Style.css">
+</head>
+
+<body ng-app="b3">
+    <div class="main" ng-controller="ctr1">
+        <div id="particles-js"></div>
+        <form class="form" id="form-1">
+            <h3 class="heading">Đăng ký thành viên</h3>
+
+            <div class="spacer"></div>
+            
+            <div class="form-group">
+                <label for="" class="form-label">Mã sinh viên</label>
+                <input name="soluong" ng-model="soluong" required minlength="7" maxlength="30" 
+                class="form-control">
+                <em ng-if="frm.soluong.$invalid || soluong>100" class="form-message text-danger">
+                    Vui lòng nhập mã sinh viên ít nhất 7 ký tự
+                </em>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Tên sinh viên</label>
+                <input type="text" name="tensp" ng-model="tensp" required minlength="2" maxlength="30"
+                    class="form-control bg-primary">
+                <em ng-if="frm.tensp.$invalid" class="form-message text-danger">
+                    Vui lòng nhập tên của bạn từ 2 đến 30 ký tự
+                </em>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Tỉnh/TP</label>
+                <select name="nsx" id="nhaSx" ng-model="nsx" class="form-control">
+                    <option value="">-- Chọn Quốc tịch --</option>
+                    <option value="1">Việt nam</option>
+                    <option value="2">Lào</option>
+                    <option value="3">Trung Quốc</option>
+                </select>
+                <em ng-if="!nsx || nsx==0" class="form-message text-danger">
+                    Vui lòng chọn quốc tịch
+                </em>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Chọn giới tính</label>
+                <div class="radio-form">
+                    <div class="radio-item">
+                        <input id="cu" name="tinhtrang" ng-model="tinhtrang" type="radio" value="1"
+                            class="form-control">
+                        <label for="cu">Nam</label>
+                    </div>
+                    <div class="radio-item">
+                        <input id="moi" name="tinhtrang" ng-model="tinhtrang" type="radio" value="2"
+                            class="form-control">
+                        <label for="moi">Nữ</label>
+                    </div>
+                </div>
+                <em ng-if="!tinhtrang" class="form-message text-danger">
+                    Vui lòng chọn giới tính
+                </em>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="form-label">Chọn sở thích</label>
+                <div class="radio-form">
+                    <div class="radio-item">
+                        <input id="do" type="checkbox" ng-model="maudo" value="do" class="form-control">
+                        <label for="do">Đọc Sách</label>
+                    </div>
+                    <div class="radio-item">
+                        <input id="den" type="checkbox" ng-model="mauden" value="den" class="form-control">
+                        <label for="den">Du lịch</label>
+                    </div>
+                    <div class="radio-item">
+                        <input id="trang" type="checkbox" ng-model="mautrang" value="trang" class="form-control">
+                        <label for="trang">Ẩm thực</label>
+                    </div>
+                </div>
+                <em ng-if="!maudo && !mauden && !mautrang" class="form-message text-danger">
+                    Vui lòng chọn ít nhất 1 sở thích
+                </em>
+            </div>
+
+            <div class="form-group invalid">
+                <span class="form-message text-center"></span>
+            </div>
+
+            <div class="form-group">
+                <button class="form-submit" ng-click="submit()">Đăng ký</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="./bai3.js"></script>
+    <script src="./particles.js"></script>
+
+    <script>
+        app = angular.module('b3', []);
+        app.controller('ctr1', xuly);
+
+        function xuly($scope) {
+            $scope.submit = function () {
+                var tenSp = $scope.tensp;
+                var soLuong = $scope.soluong;
+                var nhaSanXuat = $scope.nsx;
+                var tinhTrang = $scope.tinhtrang;
+
+                var mauDo = $scope.maudo;
+                var mauDen = $scope.mauden;
+                var mauTrang = $scope.mautrang;
+
+                var mauSac;
+                if (mauDo == true || mauDen == true || mauTrang == true) {
+                    mauSac = true;
+                } else {
+                    mauSac = false;
+                }
+
+                if (tenSp === undefined) {
+                    messageErr.innerHTML = `Vui lòng nhập tên ít nhất 2 ký tự`;
+                } else if (soLuong === undefined) {
+                    messageErr.innerHTML = `Vui lòng nhập số lượng từ 1 đến 100`;
+                } else if (nhaSanXuat == undefined) {
+                    messageErr.innerHTML = `Vui lòng chọn nhà sản xuất`;
+                } else if (tinhTrang == undefined) {
+                    messageErr.innerHTML = `Vui lòng chọn tình trạng sản phẩm`;
+                } else if (mauSac == false) {
+                    console.log('Trên: '+mauSac)
+                    messageErr.innerHTML = `Vui lòng chọn ít nhất một màu`;
+                } else {
+                    messageErr.parentElement.classList.remove('invalid');
+                    messageErr.parentElement.classList.add('text-success');
+                    messageErr.innerHTML = `Bạn nhập dữ liệu đúng yêu cầu`;
+                    showAlert();
+                }
+
+                function showAlert() {
+                    var name = 'Dương Đình Thiện Vũ'
+                    alert(`Tôi là ${name}! A mây zing gút chóp!!!`)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
